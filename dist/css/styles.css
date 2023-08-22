@@ -1,0 +1,5 @@
+.deneme {
+  display: grid;
+  background: -webkit-gradient(linear, left top, left bottom, from(white), to(black));
+  background: linear-gradient(to bottom, white, black);
+}

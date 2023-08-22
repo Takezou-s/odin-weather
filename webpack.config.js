@@ -11,8 +11,21 @@ module.exports = {
     rules: [
       {
         test: /\.ts$/,
-        use: "babel-loader",
         include: [path.resolve(__dirname, "src", "ts")],
+        use: [
+          {
+            loader: "babel-loader",
+            options: {
+              presets: [["@babel/preset-env", { targets: "defaults" }]],
+            },
+          },
+          {
+            loader: "ts-loader",
+            options: {
+              transpileOnly: true,
+            },
+          },
+        ],
       },
       {
         test: /\.(scss)$/,
@@ -30,7 +43,7 @@ module.exports = {
             loader: "postcss-loader",
             options: {
               postcssOptions: {
-                plugins: () => [autoprefixer],
+                plugins: [autoprefixer],
               },
             },
           },
