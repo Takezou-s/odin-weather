@@ -18,7 +18,7 @@ export default class ForecastSummary extends Container {
     this.imgEl = document.createElement("img");
 
     this.temperatureEl = document.createElement("span");
-    this.temperatureEl.className = "fs-5 fw-semibold";
+    this.temperatureEl.className = "fs-6 fw-semibold";
 
     this.addChildren([this.timeEl, this.imgEl, this.temperatureEl]);
   }
@@ -31,7 +31,7 @@ export default class ForecastSummary extends Container {
     });
 
     this._bindToState(this._ps.temperature, ({ getValue }) => {
-      this.temperatureEl.textContent = getValue() + " °C";
+      this.temperatureEl.textContent = getValue();
     });
 
     this._bindToState(this._ps.img, ({ getValue }) => {

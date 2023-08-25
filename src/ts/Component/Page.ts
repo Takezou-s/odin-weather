@@ -69,12 +69,12 @@ export default class Page extends Container {
     this.searchCityEl.type = "text";
     this.searchCityEl.placeholder = "Search for cities";
     this.searchCityEl.oninput = this.searchCityChangedHandler.bind(this);
-    this.searchContainer = new Container({ classes: "col-12 p-0 position-relative" });
+    this.searchContainer = new Container({ classes: "offset-xl-1 col-xl-10 col-lg-12 p-0 position-relative" });
     // this.searchContainer.addChildren([this.searchCityEl, this.searchResult]);
     this.searchContainer.addChildren([this.searchCityEl]);
     this.addChildren(this.searchContainer);
 
-    this.column1 = new Container({ classes: "col-7 p-0 pe-3 d-flex flex-column gap-3 justify-content-between align-self-stretch" });
+    this.column1 = new Container({ classes: "offset-xl-1 col-xl-6 col-lg-7 p-0 pe-3 d-flex flex-column gap-3 justify-content-between align-self-stretch" });
     this.weatherSummary = new WeatherSummary({
       city: "Madrid",
       region: "",
@@ -97,7 +97,7 @@ export default class Page extends Container {
     this.airConditionContainer.addAirConditionItem(this.uvIndex);
     this.column1.addChildren(this.airConditionContainer);
 
-    this.column2 = new Container({ classes: "col-5 p-0 d-flex gap-3 flex-column justify-content-between align-self-stretch" });
+    this.column2 = new Container({ classes: "col-xl-4 col-lg-5 p-0 d-flex gap-3 flex-column justify-content-between align-self-stretch" });
     this.forecastContainer = new ForecastContainer();
     this.forecastSummary1 = new ForecastSummary({ time: "06:00", img: "https://picsum.photos/200", temperature: 25 });
     this.forecastSummary2 = new ForecastSummary({ time: "06:00", img: "https://picsum.photos/200", temperature: 25 });
@@ -179,7 +179,6 @@ export default class Page extends Container {
         }),
       ]);
       const data = await response.json();
-      console.log(data, data.forecast.forecastday[0]);
       this.weatherSummary.props.city = data.location.name;
       this.weatherSummary.props.region = data.location.region;
       this.weatherSummary.props.country = data.location.country;
