@@ -48,7 +48,7 @@ export default class Page extends Container {
 
   private errorEl!: Component;
   constructor() {
-    super({ nodeType: "div", classes: "row vw-100 vh-100 m-0 align-items-start align-content-start row-gap-4 p-3" });
+    super({ nodeType: "div", classes: "row vw-100 vh-100 m-0 align-items-start align-content-start row-gap-3 p-3" });
   }
 
   protected _initNode(): void {
@@ -74,7 +74,7 @@ export default class Page extends Container {
     this.searchContainer.addChildren([this.searchCityEl]);
     this.addChildren(this.searchContainer);
 
-    this.column1 = new Container({ classes: "offset-xl-1 col-xl-6 col-lg-7 p-0 pe-3 d-flex flex-column gap-3 justify-content-between align-self-stretch" });
+    this.column1 = new Container({ classes: "offset-xl-1 col-xl-6 col-lg-7 p-0 pe-lg-3 d-flex flex-column gap-3 justify-content-between align-self-stretch" });
     this.weatherSummary = new WeatherSummary({
       city: "Madrid",
       region: "",
